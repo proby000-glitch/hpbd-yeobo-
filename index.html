@@ -38,7 +38,7 @@
       var msg = document.getElementById("msg");
       var input = document.getElementById("pw");
 
-      if(password === "minhthienthongminhdeptrainhat") {
+      if(password === "minhthienthongminhdeptraichimtonhat") {
         window.location.href = "secret.html";
       } else {
         attempts++;
@@ -47,14 +47,17 @@
           msg.innerText = "sai ồi :< thử lại i cưng";
         } 
         else if(attempts === 2) {
-          msg.innerText = "hint: điều hiển nhiên (minhthienth___mi__d__t___nhat";
+          msg.innerText = "hint: điều hiển nhiên (minhthienth_ _ _mi_ _d_ _t_ _ _c_ _ _ _t_ nhat) (mỗi gạch là một chữ cần điền)";
         } 
         else if(attempts === 3) {
-          msg.innerText = "anh type chậm lại xem bebéee";
+          msg.innerText = "anh thử type chậm lại xem xao huhu";
         } 
         else if(attempts === 4) {
-          msg.innerText = "anh type j mầ sai được dzay lmao 😭";
+          msg.innerText = "nó là minhthienthongminhdeptraic_ _ _ _t_nhat đó, anh đoán coi là gì !! (hint tiếp luôn 3=================D lmao)";
         } 
+        else if(attempts === 5) {
+          msg.innerText = "anh type j mầ sai được dzay lmao 😭 anh thử type chậm lại xem xao huhu";
+        }
         else {
           msg.innerText = "anh cố tình phải hong !!! phạt đợi 5s";
           input.disabled = true;
