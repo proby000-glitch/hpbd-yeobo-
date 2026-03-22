@@ -31,47 +31,90 @@
   </div>
 
   <script>
-    let attempts = 0;
+let attempts = 0;
 
-    function check() {
-      var password = document.getElementById("pw").value;
-      var msg = document.getElementById("msg");
-      var input = document.getElementById("pw");
+function check() {
+  var password = document.getElementById("pw").value;
+  var msg = document.getElementById("msg");
+  var input = document.getElementById("pw");
 
-      if(password === "minhthienthongminhdeptraichimtonhat") {
-        window.location.href = "secret.html";
-      } else {
-        attempts++;
+  if(password === "minhthienthongminhdeptrainhat") {
 
-        if(attempts === 1) {
-          msg.innerText = "sai ồi :< thử lại i cưng";
-        } 
-        else if(attempts === 2) {
-          msg.innerText = "hint: điều hiển nhiên (minhthienth_ _ _mi_ _d_ _t_ _ _c_ _ _ _t_ nhat) (mỗi gạch là một chữ cần điền)";
-        } 
-        else if(attempts === 3) {
-          msg.innerText = "anh thử type chậm lại xem xao huhu";
-        } 
-        else if(attempts === 4) {
-          msg.innerText = "nó là minhthienthongminhdeptraic_ _ _ _t_nhat đó, anh đoán coi là gì !! (hint tiếp luôn 3=================D lmao)";
-        } 
-        else if(attempts === 5) {
-          msg.innerText = "anh type j mầ sai được dzay lmao 😭 anh thử type chậm lại xem xao huhu";
-        }
-        else {
-          msg.innerText = "anh cố tình phải hong !!! phạt đợi 5s";
-          input.disabled = true;
+    // 🎉 hiện chữ chúc mừng
+    let success = document.createElement("div");
+    success.innerText = "Chúc mừng 🎉";
+    success.style.position = "fixed";
+    success.style.top = "50%";
+    success.style.left = "50%";
+    success.style.transform = "translate(-50%, -50%)";
+    success.style.fontSize = "40px";
+    success.style.fontWeight = "bold";
+    success.style.color = "#ff4d6d";
+    success.style.zIndex = "999";
 
-          setTimeout(() => {
-            attempts = 0;
-            input.disabled = false;
-            input.value = "";
-            msg.innerText = "";
-          }, 5000);
-        }
-      }
+    document.body.appendChild(success);
+
+    // 🎆 pháo bông
+    for(let i = 0; i < 30; i++) {
+      let fire = document.createElement("div");
+      fire.innerText = "🎉";
+      fire.style.position = "fixed";
+      fire.style.left = Math.random() * 100 + "vw";
+      fire.style.top = "100vh";
+      fire.style.fontSize = "20px";
+      fire.style.opacity = "0.8";
+      fire.style.zIndex = "999";
+
+      document.body.appendChild(fire);
+
+      fire.animate([
+        { transform: "translateY(0)", opacity: 1 },
+        { transform: "translateY(-100vh)", opacity: 0 }
+      ], {
+        duration: (2 + Math.random() * 2) * 1000,
+        easing: "ease-out"
+      });
     }
-  </script>
 
-</body>
-</html>
+    // fade + chuyển trang
+    setTimeout(() => {
+      document.body.style.transition = "opacity 1s";
+      document.body.style.opacity = "0";
+    }, 2000);
+
+    setTimeout(() => {
+      window.location.href = "secret.html";
+    }, 3000);
+
+  } else {
+    attempts++;
+
+    if(attempts === 1) {
+      msg.innerText = "sai ồi :< thử lại i cưng";
+    } 
+    else if(attempts === 2) {
+      msg.innerText = "hint: điều hiển nhiên (minhthienth_ _ _mi_ _d_ _t_ _ _c_ _ _ _t_ nhat) (mỗi gạch là một chữ cần điền)";
+    } 
+   else if(attempts === 3) {
+      msg.innerText = "anh thử type chậm lại xem xao huhu";
+     } 
+   else if(attempts === 4) {
+      msg.innerText = "nó là minhthienthongminhdeptraic_ _ _ _t_nhat đó, anh đoán coi là gì !! (hint tiếp luôn 3=================D lmao)";
+     } 
+   else if(attempts === 5) {
+      msg.innerText = "anh type j mầ sai được dzay lmao 😭 anh thử type chậm lại xem xao huhu";
+     }
+   else {
+       msg.innerText = "anh cố tình phải hong !!! phạt đợi 5s";
+       input.disabled = true;
+
+      setTimeout(() => {
+        attempts = 0;
+        input.disabled = false;
+        input.value = "";
+        msg.innerText = "";
+      }, 5000);
+    }
+  }
+}
+</script>
