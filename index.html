@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secret Page</title>
+</head>
+<body style="text-align:center; margin-top:50px;">
+  <h2>chồng iu biết mật khẩu chưâa nhập dô i nềee 🎁</h2>
+  <input type="password" id="pw">
+  <button onclick="check()">Enter</button>
+
+  <p id="msg"></p>
+
+  <script>
+    function check() {
+      var password = document.getElementById("pw").value;
+      if(password === "minhthienthongminhdeptrainhat") {
+        window.location.href = "secret.html";
+      } else {
+        document.getElementById("msg").innerText = "sai ồi :< thử lại i cưng";
+      }
+    }
+  </script>
+</body>
+</html>
