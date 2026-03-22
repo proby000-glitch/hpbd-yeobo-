@@ -1,24 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Secret Page</title>
+  <title>ckúc mừg sinh nhật ck</title>
 </head>
-<body style="text-align:center; margin-top:50px;">
-  <h2>chồng iu biết mật khẩu chưâa nhập dô i nềee 🎁</h2>
-  <input type="password" id="pw">
-  <button onclick="check()">Enter</button>
 
-  <p id="msg"></p>
+<body style="
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  font-family:sans-serif;
+">
+
+  <div>
+    <h2>chồng iu biết mật khẩu chưaaa nhập dô i nềee 🎁</h2>
+
+    <input type="password" id="pw" 
+      style="padding:10px; border-radius:10px; border:1px solid #ccc;">
+    
+    <br><br>
+
+    <button onclick="check()" 
+      style="padding:10px 20px; border-radius:10px; border:none;">
+      ok r đấy e iu
+    </button>
+
+    <p id="msg" style="margin-top:15px;"></p>
+  </div>
 
   <script>
+    let attempts = 0;
+
     function check() {
       var password = document.getElementById("pw").value;
+      var msg = document.getElementById("msg");
+      var input = document.getElementById("pw");
+
       if(password === "minhthienthongminhdeptrainhat") {
         window.location.href = "secret.html";
       } else {
-        document.getElementById("msg").innerText = "sai ồi :< thử lại i cưng";
+        attempts++;
+
+        if(attempts === 1) {
+          msg.innerText = "sai ồi :< thử lại i cưng";
+        } 
+        else if(attempts === 2) {
+          msg.innerText = "hint: điều hiển nhiên (minhthienth___mi__d__t___nhat";
+        } 
+        else if(attempts === 3) {
+          msg.innerText = "anh type chậm lại xem bebéee";
+        } 
+        else if(attempts === 4) {
+          msg.innerText = "anh type j mầ sai được dzay lmao 😭";
+        } 
+        else {
+          msg.innerText = "anh cố tình phải hong !!! phạt đợi 5s";
+          input.disabled = true;
+
+          setTimeout(() => {
+            attempts = 0;
+            input.disabled = false;
+            input.value = "";
+            msg.innerText = "";
+          }, 5000);
+        }
       }
     }
   </script>
+
 </body>
 </html>
